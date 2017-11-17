@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Block from './model/block';
 
 class App extends Component {
   render() {
+    let genesisBlock = new Block(0, new Date(), 'Genesis Block', '0')
+
     return (
       <div className="App">
         <header className="App-header">
