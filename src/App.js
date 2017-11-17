@@ -1,21 +1,21 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import Block from './model/block';
+import BlockChain from './model/blockchain';
+import BlockChainEl from './BlockChain';
 
 class App extends Component {
   render() {
-    let genesisBlock = new Block(0, new Date(), 'Genesis Block', '0')
+    let blockChain = new BlockChain();
+    blockChain.addBlock({to: 'Ryan', from: 'Scott', amount: '100'})
 
     return (
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
+          <h1 className="App-title">Welcome to ReactiveCoin</h1>
         </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <BlockChainEl blockChain={blockChain} />
       </div>
     );
   }
