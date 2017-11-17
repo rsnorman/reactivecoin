@@ -2,18 +2,20 @@ import crypto from 'crypto';
 
 class Block {
   constructor(index, timestamp, data, previousHash) {
-    this.index = index
-    this.timestamp = timestamp
-    this.data = data
-    this.previousHash = previousHash
-    this.hash = this._getHashBlock();
+    this.index = index;
+    this.timestamp = timestamp;
+    this.data = data;
+    this.previousHash = previousHash;
+    this.hash = this._genHash();
   }
 
-  _getHashBlock() {
-    return crypto
-      .createHash('md5')
-      .update(`${this.index}${this.timestamp}${this.data}${this.previousHash}`)
-      .digest('hex')
+  toString() {
+    return `${this.index}${this.timestamp}${JSON.stringify(this.data)}${this.previousHash}`
+  }
+
+  _genHash() {
+    console.log(this.toString());
+    return crypto.createHash('md5').update(this.toString()).digest('hex');
   }
 }
 
