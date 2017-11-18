@@ -2,6 +2,8 @@
 
 # dependencies
 /node_modules
+/lambda-functions/*/node_modules
+/lambda-functions/*.zip
 
 # testing
 /coverage
